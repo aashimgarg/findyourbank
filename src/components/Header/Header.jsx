@@ -1,4 +1,5 @@
 import React from "react";
+import {Link}  from "react-router-dom";
 import { Nav, Navbar, Container } from "react-bootstrap";
 import './Header.css';
 
@@ -11,8 +12,8 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto" />
           <Nav>
-            <Nav.Link href="#albanks">All Banks</Nav.Link>
-            <Nav.Link href="#favourites">Favourites</Nav.Link>
+            <Nav.Link as={Link} to = {"/all-banks"}> All Banks</Nav.Link>
+            <Nav.Link as={Link} to = {"/favourites"}> Favorites </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
