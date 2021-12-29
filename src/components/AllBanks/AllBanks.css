@@ -1,0 +1,101 @@
+
+.all-banks {
+	max-width: 1370px;
+	width: 100%;
+	margin: auto;
+	padding: 24px;
+}
+
+.bank-card {
+	max-width: 1000px;
+	width: 100%;
+	padding: 16px !important;
+	border: 0.2px solid grey;
+	padding: 18px;
+	border-radius: 2px;
+	margin-bottom: 8px;
+}
+.bank-card.marked-favorite {
+	border: 3px solid black;
+	border-radius: 4px;
+}
+
+.bank-card a {
+	text-decoration: none;
+	color: black;
+}
+.bank-card a:hover {
+	color: #FfC892 ;
+}
+.bank-card:hover {
+	box-shadow: 3px 4px #c0baba;
+	transition: box-shadow 0.5s;
+}
+.wrapper-card-heading {
+    padding: 10px;
+}
+.card-heading {
+	font-size: 18px;
+	color: burlywood;
+}
+
+.card-message {
+	font-size: 16px;
+	word-break: break-word;
+}
+
+.footer {
+	float: right;
+	margin-bottom: 8px;
+	padding: 24px;
+}
+
+.no-of-rows {
+	margin-right: 24px;
+}
+
+.left-arrow {
+	margin-right: 8px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.right-arrow {
+	margin-left: 8px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.form-container {
+	position: relative;
+	z-index: 700;
+}
+
+.select-city,
+.select-category,
+.search-bar {
+	width: 100%;
+	height: 50px;
+	margin-bottom: 24px;
+	padding: 4px;
+}
+
+.select-city,
+.select-category {
+	border-radius: 4px;
+	background-color: transparent;
+}
+
+.search-bar {
+	border-radius: 8px;
+	border: 1px solid black;
+}
+
+input:disabled {
+	cursor: not-allowed;
+}
+
+.no-data-found {
+	font-size: 24px;
+	text-align: center;
+}

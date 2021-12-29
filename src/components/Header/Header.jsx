@@ -13,7 +13,7 @@ const Header = () => {
           <Nav className="me-auto" />
           <Nav>
             <Nav.Link as={Link} to = {"/all-banks"}> All Banks</Nav.Link>
-            <Nav.Link as={Link} to = {"/favourites"}> Favorites </Nav.Link>
+            <Nav.Link as={Link} to = {"/favorites"}> Favorites </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
