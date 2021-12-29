@@ -80,6 +80,16 @@ const AllBanks = ({ setDataLoading, setErrorOccurred }) => {
 		window.scrollTo(0, 0);
 	};
 
+
+	const rowsPerPageChange = (e) => {
+		if (!e?.target?.value) {
+			setNoOfDataToShow(10);
+			return;
+		}
+		if (e.target.value > 100) setNoOfDataToShow(100);
+		else if (e.target.value < 1) setNoOfDataToShow(1);
+		else setNoOfDataToShow(parseInt(e.target.value));
+	};
 	useEffect(() => {
 		const searchedCityStoreInLocalStorage =
 			getDataIfExistsInLocalStorage("searchCity");
@@ -111,7 +121,13 @@ const AllBanks = ({ setDataLoading, setErrorOccurred }) => {
 					<ShowDataContainer visibleBankData={visibleBankData} />
 					<div className="footer">
 						<span className="no-of-rows">
-							Row{noOfDataToShow > 1 ? "s" : ""} per page: {noOfDataToShow}
+						Row{noOfDataToShow > 1 ? "s" : ""} per page:{" "}
+							<input
+								className="rows-per-page-input"
+								type="number"
+								value={noOfDataToShow}
+								onChange={(e) => rowsPerPageChange(e)}
+							/>
 						</span>
 						<span className="left-arrow" onClick={onLeftClick}>
 							&lt;{" "}
