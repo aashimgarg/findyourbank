@@ -16,17 +16,20 @@ const AllBanks = ({ setDataLoading, setErrorOccurred }) => {
 	const [city, setCity] = useState("Mumbai");
 	const [visibleBankData, setVisibleBankData] = useState([]);
 	const [bankDataForReference, setBankDataForReference] = useState([]);
-
+	
 	const fetchData = async () => {
 		setDataLoading(true);
 		try {
 			const savedData = getDataIfExistsInLocalStorage(city.toUpperCase());
-
+            const res = city[0] + city.substring(1).toLowerCase();
 			if (!savedData) {
-				const results = await axios.get(
-					`https://vast-shore-74260.herokuapp.com/banks?city=${city.toUpperCase()}`
+				const url = `https://bankjs.herokuapp.com/${res}`
+				const results = await axios.get(url , {
+					headers: {
+					Accept: 'application/json'
+						}
+				    }
 				);
-
 				storeDataInLocalStorage(city.toUpperCase(), results.data);
 				setDataLoading(false);
 				setBankData(results.data);

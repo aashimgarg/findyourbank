@@ -14,26 +14,7 @@ const BankDetails = ({ setDataLoading, setErrorOccurred }) => {
 	const { ifscCode } = useParams();
 	const [bankDetailsData, setBankDetailsData] = useState(false);
 	const [isFavorite, setIsFavorite] = useState(false);
-
-	const fetchBankDetails = async () => {
-		setDataLoading(true);
-		if (ifscCode) {
-			try {
-				const response = await axios.get(
-					`https://vast-shore-74260.herokuapp.com/bank?ifsc=${ifscCode}`
-				);
-
-				if (response.data.ifsc) {
-					setBankDetailsData(response.data);
-				}
-				setDataLoading(false);
-			} catch (err) {
-				setDataLoading(false);
-				setErrorOccurred(true);
-			}
-		}
-	};
-
+   
 	const addFavorite = () => {
 		setIsFavorite(true);
 		const favoriteDataFromStorage = getDataIfExistsInLocalStorage("favorites");
@@ -69,28 +50,23 @@ const BankDetails = ({ setDataLoading, setErrorOccurred }) => {
 		const searchedCityStoreInLocalStorage =
 			getDataIfExistsInLocalStorage("searchCity");
 
-		if (!searchedCityStoreInLocalStorage) {
-			fetchBankDetails();
-		} else {
-			const bankDetailsData = getDataIfExistsInLocalStorage(
+		const bankDetailsData = getDataIfExistsInLocalStorage(
 				searchedCityStoreInLocalStorage.value
 			).value;
-			if (!bankDetailsData) {
-				fetchBankDetails();
-			} else {
-				const bankData = bankDetailsData.filter((data) => {
-					if (data.ifsc === ifscCode) {
-						return data;
-					}
-					return false;
-				});
-				if (bankData[0]) {
-					setBankDetailsData(bankData[0]);
-				} else {
-					fetchBankDetails();
+
+		const bankData = bankDetailsData.filter((data) => {
+				if (data.ifsc === ifscCode) {
+					return data;
 				}
-			}
+			return false;
+		});
+		
+		if (bankData[0]) {
+			setBankDetailsData(bankData[0]);
+		} else {
+			<p>Enter valid cred</p>
 		}
+	
 		const favoriteDataFromStorage = checkFavoriteOrNot(ifscCode);
 		if (favoriteDataFromStorage) {
 			setIsFavorite(true);

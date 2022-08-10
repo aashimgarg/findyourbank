@@ -24,24 +24,35 @@ const Favorites = () => {
               <>
                 <h3 style={{paddingLeft:'0px' ,paddingBottom:'10px'}}>Favorites!</h3>   
                       
-                  <Col md={3}>
-                    <Row className="card-heading">Bank Name</Row>
-                  </Col>
-                  <Col md={2}>
-                    <Row className="card-heading">IFSC</Row>
-                  </Col>
-                  <Col md={2}>
-                    <Row className="card-heading">Branch</Row>
-                  </Col>
-                  <Col md={1}>
-                    <Row className="card-heading">Bank Id</Row>
-                  </Col>
-                  <Col md={4} >
-                    <Row className="card-heading">Address</Row>
-                  </Col>
-                  <div style={{margin:'9px'}}></div>
                 {favoritesData.map((data) => (
-                  <BankCard info={data} key={data.ifsc} />
+                  <div  className="bank-details">
+                    <div style={{width:'600px'}} className="details details-data">
+                      <div className="bank-name padding">
+                        <div className="title">Bank Name :</div> {data.bank_name}
+                      </div>
+                      <div className="bank-ifsc padding">
+                        <div className="title">IFSC Code :</div> {data.ifsc}
+                      </div>
+                      <div className="bank-id padding">
+                        <div className="title">Bank Id :</div> {data.bank_id}
+                      </div>
+                      <div className="bank-branch padding">
+                        <div className="title">Branch :</div> {data.branch}
+                      </div>
+                      <div className="bank-address padding">
+                        <div className="title">Address :</div> {data.address}
+                      </div>
+                      <div className="bank-city padding">
+                        <div className="title">City :</div> {data.city}
+                      </div>
+                      <div className="bank-district padding">
+                        <div className="title">District :</div> {data.district}
+                      </div>
+                      <div className="bank-state padding">
+                        <div className="title">Bank Name :</div> {data.state}
+                      </div>
+                    </div>
+                </div>
                 ))}
               </>
             )}
