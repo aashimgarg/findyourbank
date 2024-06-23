@@ -21,7 +21,7 @@ const AllBanks = ({ setDataLoading, setErrorOccurred }) => {
 		setDataLoading(true);
 		try {
 			const savedData = getDataIfExistsInLocalStorage(city.toUpperCase());
-            const res = city[0] + city.substring(1).toLowerCase();
+            const res = city.toUpperCase();
 			if (!savedData) {
 				const url = `https://ea1c20ef-757e-407c-bd95-643e8f57bdce.mock.pstmn.io/banks?city=${res}`
 				const results = await axios.get(url , {

@@ -67,9 +67,7 @@ const SearchContainer = ({
 								onChange={(e) => setCity(e.target.value)}
 							>
 								<option value="MUMBAI">Mumbai</option>
-                                <option value="BANGALORE">Bangalore</option>
-								<option value="KOLKATA">Kolkata</option>
-								<option value="PUNE">Pune</option>
+                                <option value="BANGLORE">Bangalore</option>
 								<option value="DELHI">Delhi</option>
 							</select>
 						</Col>
